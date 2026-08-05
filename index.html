@@ -69,21 +69,23 @@
 
         <div ref="{{ leadFormRef }}" style="max-width:460px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;box-shadow:0 12px 32px rgba(15,23,42,0.06);text-align:left">
           <sc-if value="{{ p1FormVisible }}" hint-placeholder-val="{{ true }}">
-            <form onSubmit="{{ submitP1 }}" style="display:flex;flex-direction:column;gap:16px">
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
-                <input type="text" required="{{ true }}" value="{{ p1Name }}" onChange="{{ onP1Name }}" placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
-                <input type="email" required="{{ true }}" value="{{ p1Email }}" onChange="{{ onP1Email }}" placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone</label>
-                <input type="tel" required="{{ true }}" value="{{ p1Phone }}" onChange="{{ onP1Phone }}" placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer">Request My Free Bill Review</button>
-            </form>
+            <form action="https://api.web3forms.com/submit" method="POST" style="display:flex;flex-direction:column;gap:16px">
+  <input type="hidden" name="access_key" value="9f9f364d-fdb6-45bb-bbb7-9472c5afe900">
+  <input type="hidden" name="subject" value="New Energy Bill Review Request">
+  <div>
+    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
+    <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
+  </div>
+  <div>
+    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
+    <input type="email" name="Email Address" required placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
+  </div>
+  <div>
+    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone</label>
+    <input type="tel" name="Mobile Phone" required placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
+  </div>
+  <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
+</form>
           </sc-if>
           <sc-if value="{{ p1SuccessVisible }}" hint-placeholder-val="{{ false }}">
             <div style="text-align:center;padding:20px 0">
