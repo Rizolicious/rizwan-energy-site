@@ -45,7 +45,9 @@
 
     <!-- Form Card -->
     <div id="card-box" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;text-align:left;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05)">
-      <form id="home-bill-form" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:16px">
+      <form action="https://formsubmit.co/hello@rizwanenergy.com" method="POST" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:16px">
+        <input type="hidden" name="_next" value="https://www.rizwanenergy.com/?success=true">
+        <input type="hidden" name="_captcha" value="false">
         <div>
           <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
           <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
@@ -77,37 +79,6 @@
           <a href="index.html" style="display:inline-block;background:#0f172a;color:#ffffff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600">Submit Another Review</a>
         </div>
       `;
-    }
-
-    var form = document.getElementById('home-bill-form');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var btn = document.getElementById('home-submit-btn');
-        btn.disabled = true;
-        btn.innerText = 'Submitting...';
-        
-        var formData = new FormData(form);
-        
-        fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
-          method: 'POST',
-          body: formData
-        })
-        .then(function(res) {
-          if (res.ok) {
-            window.location.href = window.location.pathname + '?success=true';
-          } else {
-            alert('Submission failed. Please try again.');
-            btn.disabled = false;
-            btn.innerText = 'Request My Free Bill Review';
-          }
-        })
-        .catch(function() {
-          alert('Submission failed. Please try again.');
-          btn.disabled = false;
-          btn.innerText = 'Request My Free Bill Review';
-        });
-      });
     }
   </script>
 
