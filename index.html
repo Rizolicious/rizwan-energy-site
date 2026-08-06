@@ -1,567 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rizwan Naeem - Utility & Energy Comparison</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f8fafc; color: #0f172a; }
+  </style>
 </head>
 <body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  body { margin: 0; font-family: 'Inter', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
-  * { box-sizing: border-box; }
-  @keyframes pulseLive { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-  @media (max-width: 640px) { #testimonialsGrid { grid-template-columns: 1fr !important; } }
-  @media (min-width: 768px) { #testimonialsGrid { grid-template-columns: repeat(3, 1fr) !important; } }
-  input:focus, textarea:focus { outline: 2px solid #10b981; outline-offset: 1px; }
-</style>
-</helmet>
 
-<div style="min-height:100vh;background:#f8fafc;display:flex;flex-direction:column;color:#0f172a">
-
-  <!-- LIVE NEWS TICKER -->
-  <div style="background:#0f172a;padding:9px 20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
-    <span style="display:inline-flex;align-items:center;gap:6px;background:#dc2626;color:#ffffff;font-size:11px;font-weight:800;letter-spacing:0.4px;padding:3px 9px;border-radius:999px;animation:pulseLive 1.6s ease-in-out infinite;flex-shrink:0">
-      <span style="width:6px;height:6px;border-radius:50%;background:#ffffff;display:inline-block"></span>
-      LIVE NEWS
-    </span>
-    <span style="font-size:13px;font-weight:600;color:#fbbf24;max-width:640px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ liveHeadlineDisplay }}</span>
-    <sc-if value="{{ showReadLink }}" hint-placeholder-val="{{ false }}">
-      <a href="{{ liveLinkHref }}" target="_blank" rel="noopener noreferrer" style="font-size:12px;font-weight:700;color:#ffffff;text-decoration:underline;flex-shrink:0">Read →</a>
-    </sc-if>
+  <!-- Announcement Bar -->
+  <div style="background:#0f172a;color:#ffffff;text-align:center;padding:10px 16px;font-size:13px;font-weight:500">
+    <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;margin-right:8px;font-size:11px">● LIVE NEWS</span>
+    ⚡ Energy Expert Alert: Fixed tariffs currently beat standard variable rates — check if you can save.
   </div>
 
-  <!-- HEADER -->
-  <header style="position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid #e2e8f0;padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:12px 16px;flex-wrap:wrap">
-    <div style="display:flex;flex-direction:column;line-height:1.15">
-      <span style="font-size:18px;font-weight:800;color:#0f172a">Rizwan Naeem</span>
-      <span style="font-size:12px;font-weight:500;color:#64748b">Utility &amp; Energy Comparison</span>
+  <!-- Header Navigation -->
+  <div style="max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <div style="font-size:18px;font-weight:800;color:#0f172a">Rizwan Naeem</div>
+      <div style="font-size:12px;color:#64748b">Utility & Energy Comparison</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;background:#f1f5f9;padding:6px;border-radius:12px">
+      <a href="/" style="padding:8px 16px;background:#0f172a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px">Home</a>
+      <a href="/upload" style="padding:8px 16px;color:#334155;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px">Upload Bill</a>
+      <a href="/refer" style="padding:8px 16px;color:#334155;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px">Refer a Friend</a>
+    </div>
+    <a href="tel:07799433728" style="background:#10b981;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px">
+      📞 Call 07799433728
+    </a>
+  </div>
+
+  <!-- Main Hero Content -->
+  <div style="max-width:680px;margin:40px auto 60px;padding:0 20px;text-align:center">
+    <h1 style="font-size:36px;font-weight:800;color:#0f172a;margin-bottom:8px;letter-spacing:-0.5px">Stop Overpaying for Your Energy.</h1>
+    <p style="font-size:16px;color:#475569;margin-bottom:20px">Free, honest energy bill reviews with no obligation.</p>
+
+    <!-- Badges -->
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px">
+      <span style="background:#ffffff;border:1px solid #e2e8f0;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:600;color:#1e293b">✅ Free Bill Review</span>
+      <span style="background:#ffffff;border:1px solid #e2e8f0;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:600;color:#1e293b">💵 £150 Cashback Available*</span>
+      <span style="background:#ffffff;border:1px solid #e2e8f0;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:600;color:#1e293b">⭐ No Exit Fees on Energy Switches</span>
     </div>
 
-    <nav style="display:flex;gap:6px;background:#f1f5f9;padding:5px;border-radius:12px;flex-wrap:wrap;justify-content:center">
-      <button onClick="{{ goPage1 }}" style="border:none;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;background:{{ tab1Bg }};color:{{ tab1Color }}">Home</button>
-      <button onClick="{{ goPage2 }}" style="border:none;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;background:{{ tab2Bg }};color:{{ tab2Color }}">Upload Bill</button>
-      <button onClick="{{ goPage3 }}" style="border:none;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;background:{{ tab3Bg }};color:{{ tab3Color }}">Refer a Friend</button>
-    </nav>
+    <!-- Form / Success Box -->
+    <div id="card-box" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;text-align:left;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05)">
+      <form id="home-bill-form" style="display:flex;flex-direction:column;gap:16px">
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
+          <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+        </div>
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
+          <input type="email" name="Email Address" required placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+        </div>
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone</label>
+          <input type="tel" name="Mobile Phone" required placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
+        </div>
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Upload Energy Bill (Optional - PDF or Image)</label>
+          <input type="file" name="Energy Bill Attachment" accept=".pdf,.png,.jpg,.jpeg" style="width:100%;padding:10px;border:1px dashed #cbd5e1;border-radius:8px;background:#f8fafc;font-size:13px">
+        </div>
+        <button type="submit" id="home-submit-btn" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
+      </form>
+    </div>
+  </div>
 
-    <a href="tel:07799433728" style="display:flex;align-items:center;gap:8px;background:#10b981;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 18px;border-radius:10px;white-space:nowrap">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-      Call 07799433728
-    </a>
-  </header>
-<h1 style="font-size:36px;font-weight:800;color:#0f172a;margin-bottom:8px">Stop Overpaying for Your Energy.</h1>
-<p style="font-size:16px;color:#475569;margin-bottom:24px">Free, honest energy bill reviews with no obligation.</p>
+  <script>
+    // 1. Show Green Checkmark Screen if Success Parameter Exists
+    if (window.location.search.includes('success=true')) {
+      document.getElementById('card-box').innerHTML = `
+        <div style="text-align:center;padding:20px 10px">
+          <div style="width:60px;height:60px;background:#dcfce7;color:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px">✓</div>
+          <h2 style="font-size:22px;font-weight:700;color:#0f172a;margin-bottom:8px">Bill Received!</h2>
+          <p style="font-size:14px;color:#475569;margin-bottom:20px">Thank you! I will review your details and send you a personalized comparison shortly.</p>
+          <a href="/" style="display:inline-block;background:#0f172a;color:#ffffff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600">Submit Another Review</a>
+        </div>
+      `;
+    }
 
-<form id="home-bill-form" style="display:flex;flex-direction:column;gap:16px">
-  <div>
-    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
-    <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
-  </div>
-  <div>
-    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
-    <input type="email" name="Email Address" required placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
-  </div>
-  <div>
-    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone</label>
-    <input type="tel" name="Mobile Phone" required placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
-  </div>
-  <div>
-    <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Upload Energy Bill (Optional - PDF or Image)</label>
-    <input type="file" name="Energy Bill Attachment" accept=".pdf,.png,.jpg,.jpeg" style="width:100%;padding:10px;border:1px dashed #cbd5e1;border-radius:8px;background:#f8fafc">
-  </div>
-  <button type="submit" id="home-submit-btn" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
-</form>
-
-<script>
-  document.getElementById('home-bill-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('home-submit-btn');
-    btn.disabled = true;
-    btn.innerText = 'Submitting...';
-    
-    const formData = new FormData(this);
-    
-    fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
-      method: 'POST',
-      body: formData
-    })
-    .then(function(res) {
-      if (res.ok) {
-        window.location.href = window.location.pathname + '?success=true';
-      } else {
-        alert('Submission failed. Please try again.');
-        btn.disabled = false;
-        btn.innerText = 'Request My Free Bill Review';
-      }
-    })
-    .catch(function() {
-      alert('Submission failed. Please try again.');
-      btn.disabled = false;
-      btn.innerText = 'Request My Free Bill Review';
-    });
-  });
-</script>
-</script>
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
-        method: 'POST',
-        body: formData
+    // 2. Handle Form Submission via AJAX
+    var form = document.getElementById('home-bill-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = document.getElementById('home-submit-btn');
+        btn.disabled = true;
+        btn.innerText = 'Submitting...';
+        
+        var formData = new FormData(form);
+        
+        fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
+          method: 'POST',
+          body: formData
+        })
+        .then(function(res) {
+          if (res.ok) {
+            window.location.href = window.location.pathname + '?success=true';
+          } else {
+            alert('Submission failed. Please try again.');
+            btn.disabled = false;
+            btn.innerText = 'Request My Free Bill Review';
+          }
+        })
+        .catch(function() {
+          alert('Submission failed. Please try again.');
+          btn.disabled = false;
+          btn.innerText = 'Request My Free Bill Review';
+        });
       });
-      if (res.ok) {
-        window.location.search = '?success=true';
-      } else {
-        alert('Submission failed. Please try again.');
-        btn.disabled = false;
-        btn.innerText = 'Request My Free Bill Review';
-      }
-    } catch (err) {
-      alert('Submission failed. Please try again.');
-      btn.disabled = false;
-      btn.innerText = 'Request My Free Bill Review';
     }
-  });
-</script>
-</sc-if>
-<sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
-    
-    const formData = new FormData(this);
-    
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
-        method: 'POST',
-        body: formData
-      });
-      if (res.ok) {
-        window.location.search = '?success=true';
-      } else {
-        alert('Submission failed. Please try again.');
-        btn.disabled = false;
-        btn.innerText = 'Request My Free Bill Review';
-      }
-    } catch (err) {
-      alert('Submission failed. Please try again.');
-      btn.disabled = false;
-      btn.innerText = 'Request My Free Bill Review';
-    }
-  });
-</script>
-</sc-if>
-<sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
-<sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
-              <div style="width:52px;height:52px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-              </div>
-              <p style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 6px">Thank you {{ p1Name_display }}!</p>
-              <p style="font-size:15px;color:#475569;margin:0">Rizwan will contact you within 24 hours to help you save money.</p>
-            </div>
-          </sc-if>
-        </div>
-      </section>
+  </script>
 
-      <section style="max-width:1120px;margin:0 auto;padding:24px 24px 72px">
-        <div id="testimonialsGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
-          <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:26px">
-            <p style="font-size:28px;font-weight:800;color:#10b981;margin:0 0 8px">£410/yr saved</p>
-            <p style="font-size:15px;color:#334155;font-style:italic;margin:0 0 16px">"I had no idea I was overpaying. Rizwan sorted it in one phone call — no hassle at all."</p>
-            <p style="font-size:13px;color:#94a3b8;margin:0">— Sarah T., Homeowner</p>
-          </div>
-          <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:26px">
-            <p style="font-size:28px;font-weight:800;color:#10b981;margin:0 0 8px">Commercial rate cut</p>
-            <p style="font-size:15px;color:#334155;font-style:italic;margin:0 0 16px">"Switched our shop's energy contract and saw the difference on the very next bill."</p>
-            <p style="font-size:13px;color:#94a3b8;margin:0">— Imran K., Shop Owner</p>
-          </div>
-          <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:26px">
-            <p style="font-size:28px;font-weight:800;color:#10b981;margin:0 0 8px">Zero sales pressure</p>
-            <p style="font-size:15px;color:#334155;font-style:italic;margin:0 0 16px">"He just told me the facts and let me decide. Refreshing compared to the usual cold calls."</p>
-            <p style="font-size:13px;color:#94a3b8;margin:0">— Denise M., Retiree</p>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:36px">
-          <button onClick="{{ goPage2 }}" style="background:none;border:none;color:#10b981;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline">Already have your bill handy? Go to the Direct Upload Portal →</button>
-        </div>
-      </section>
-    </sc-if>
-
-    <!-- ============ PAGE 2: UPLOAD PORTAL ============ -->
-    <sc-if value="{{ isPage2 }}" hint-placeholder-val="{{ false }}">
-      <section style="max-width:720px;margin:0 auto;padding:64px 24px 80px;text-align:center">
-        <h1 style="font-size:38px;font-weight:800;color:#0f172a;margin:0 0 14px">Upload Your Energy Bill</h1>
-        <p style="font-size:17px;color:#475569;margin:0 0 40px">Attach a photo or PDF of your bill below and I'll check if you're overpaying. Simple as that.</p>
-
-        <div style="text-align:left;background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:36px;box-shadow:0 12px 32px rgba(15,23,42,0.06)">
-          <sc-if value="{{ p2FormVisible }}" hint-placeholder-val="{{ true }}">
-            <form onSubmit="{{ submitP2 }}" style="display:flex;flex-direction:column;gap:16px">
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
-                <input type="text" required="{{ true }}" value="{{ p2Name }}" onChange="{{ onP2Name }}" placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
-                <input type="email" required="{{ true }}" value="{{ p2Email }}" onChange="{{ onP2Email }}" placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone Number</label>
-                <input type="tel" required="{{ true }}" value="{{ p2Phone }}" onChange="{{ onP2Phone }}" placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">File Upload <span style="font-weight:500;color:#94a3b8">(optional)</span></label>
-                <div onClick="{{ triggerP2Upload }}" style="border:2px dashed #cbd5e1;border-radius:12px;padding:26px;text-align:center;cursor:pointer;background:#f8fafc">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px;display:block"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                  <p style="font-size:14px;color:#475569;margin:0 0 4px;font-weight:600">Drag &amp; drop or tap to upload</p>
-                  <p style="font-size:13px;color:#94a3b8;margin:0">{{ p2FileName }}</p>
-                </div>
-                <input ref="{{ p2FileRef }}" type="file" accept=".pdf,image/*" onChange="{{ onP2File }}" style="display:none"></input>
-              </div>
-              <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer">Submit for Free Rate Check</button>
-              <button type="button" onClick="{{ openHelpModal }}" style="background:none;border:none;color:#475569;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;justify-content:center">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                Need help attaching?
-              </button>
-            </form>
-          </sc-if>
-          <sc-if value="{{ p2SuccessVisible }}" hint-placeholder-val="{{ false }}">
-            <div style="text-align:center;padding:20px 0">
-              <div style="width:52px;height:52px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-              </div>
-              <p style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 6px">Bill received!</p>
-              <p style="font-size:15px;color:#475569;margin:0">Rizwan will review it and get back to you within 24 hours.</p>
-            </div>
-          </sc-if>
-        </div>
-
-        <div style="text-align:left;margin-top:32px;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden">
-          <div style="padding:18px 24px;border-bottom:1px solid #e2e8f0">
-            <p style="font-size:15px;font-weight:700;color:#0f172a;margin:0">How to download your bill from your provider's app</p>
-          </div>
-          <sc-for list="{{ providers }}" as="item" hint-placeholder-count="10">
-            <div style="border-bottom:1px solid #f1f5f9">
-              <button onClick="{{ item.onToggle }}" style="width:100%;background:none;border:none;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left">
-                <span style="font-size:14px;font-weight:600;color:#334155">{{ item.name }}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate({{ item.chevronRotation }});transition:transform 0.15s"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </button>
-              <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
-                <p style="padding:0 24px 16px;font-size:13px;color:#64748b;margin:0">{{ item.tip }}</p>
-              </sc-if>
-            </div>
-          </sc-for>
-        </div>
-      </section>
-
-      <sc-if value="{{ showHelpModal }}" hint-placeholder-val="{{ false }}">
-        <div onClick="{{ closeHelpModal }}" style="position:fixed;inset:0;background:rgba(15,23,42,0.5);display:flex;align-items:center;justify-content:center;z-index:100;padding:24px">
-          <div onClick="{{ stopPropagation }}" style="background:#ffffff;border-radius:16px;padding:32px;max-width:420px;width:100%">
-            <p style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 14px">Need help attaching your bill?</p>
-            <p style="font-size:14px;color:#475569;line-height:1.6;margin:0 0 10px"><strong>On your phone:</strong> just take a clear photo of your latest energy bill and attach it directly — no need to download anything.</p>
-            <p style="font-size:14px;color:#475569;line-height:1.6;margin:0 0 20px"><strong>On a computer:</strong> log in to your provider's website, find your latest bill, download it as a PDF, then attach the file here.</p>
-            <button onClick="{{ closeHelpModal }}" style="width:100%;background:#0f172a;color:#ffffff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">Got it</button>
-          </div>
-        </div>
-      </sc-if>
-    </sc-if>
-
-    <!-- ============ PAGE 3: REFERRAL ============ -->
-    <sc-if value="{{ isPage3 }}" hint-placeholder-val="{{ false }}">
-      <section style="max-width:720px;margin:0 auto;padding:64px 24px 80px">
-        <div style="background:#f59e0b;color:#451a03;border-radius:16px;padding:20px 24px;text-align:center;font-size:16px;font-weight:700;margin-bottom:36px">
-          🎁 A friend or family member sent you here! You'll both get £50 cashback once your switch is complete.
-        </div>
-
-        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:36px;box-shadow:0 12px 32px rgba(15,23,42,0.06)">
-          <sc-if value="{{ p3FormVisible }}" hint-placeholder-val="{{ true }}">
-            <form onSubmit="{{ submitP3 }}" style="display:flex;flex-direction:column;gap:16px">
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
-                <input type="text" required="{{ true }}" value="{{ p3Name }}" onChange="{{ onP3Name }}" placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Email Address</label>
-                <input type="email" required="{{ true }}" value="{{ p3Email }}" onChange="{{ onP3Email }}" placeholder="jane@email.com" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone Number</label>
-                <input type="tel" required="{{ true }}" value="{{ p3Phone }}" onChange="{{ onP3Phone }}" placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <div>
-                <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Attach Bill <span style="font-weight:500;color:#94a3b8">(optional)</span></label>
-                <div onClick="{{ triggerP3Upload }}" style="border:2px dashed #cbd5e1;border-radius:12px;padding:22px;text-align:center;cursor:pointer;background:#f8fafc">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 6px;display:block"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                  <p style="font-size:13px;color:#475569;margin:0 0 3px;font-weight:600">Tap to attach PDF or photo</p>
-                  <p style="font-size:12px;color:#94a3b8;margin:0">{{ p3FileName }}</p>
-                </div>
-                <input ref="{{ p3FileRef }}" type="file" accept=".pdf,image/*" onChange="{{ onP3File }}" style="display:none"></input>
-              </div>
-              <div>
-                <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Who referred you? (Friend/Family Name) <span style="font-weight:500;color:#94a3b8">(optional)</span></label>
-                <input type="text" value="{{ p3ReferrerName }}" onChange="{{ onP3ReferrerName }}" placeholder="e.g. John Smith" style="width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit"></input>
-              </div>
-              <button type="submit" style="margin-top:4px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer">Claim Free Check &amp; £50 Cashback</button>
-            </form>
-          </sc-if>
-          <sc-if value="{{ p3SuccessVisible }}" hint-placeholder-val="{{ false }}">
-            <div style="text-align:center;padding:20px 0">
-              <div style="width:52px;height:52px;border-radius:50%;background:#fef3c7;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-              </div>
-              <p style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 6px">Claim submitted!</p>
-              <p style="font-size:15px;color:#475569;margin:0">Rizwan will be in touch — you and your friend both get £50 once you switch.</p>
-            </div>
-          </sc-if>
-        </div>
-
-        <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:48px;border-top:1px solid #e2e8f0;padding-top:28px">
-            <p style="font-size:13px;font-weight:700;color:#334155;margin:0 0 18px">Rizwan's Referral Link Generator (Admin Only)</p>
-            <div style="background:#0f172a;border-radius:16px;padding:28px;color:#ffffff">
-              <label style="display:block;font-size:13px;font-weight:600;color:#cbd5e1;margin-bottom:8px">Enter Client Name / Account Code</label>
-              <input type="text" value="{{ adminClientName }}" onChange="{{ onAdminClientName }}" placeholder="e.g. John Smith" style="width:100%;padding:12px 14px;border:1px solid #334155;border-radius:10px;font-size:15px;font-family:inherit;background:#1e293b;color:#ffffff;margin-bottom:14px"></input>
-              <button onClick="{{ generateLink }}" style="width:100%;background:#f59e0b;color:#451a03;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:18px">Generate Exclusive £50 Link</button>
-
-              <sc-if value="{{ hasGeneratedCode }}" hint-placeholder-val="{{ false }}">
-                <div style="background:#1e293b;border-radius:10px;padding:16px;margin-bottom:14px">
-                  <p style="font-size:13px;color:#94a3b8;margin:0 0 4px">Generated link</p>
-                  <p style="font-size:14px;color:#ffffff;font-weight:600;margin:0;word-break:break-all">{{ generatedLinkDisplay }}</p>
-                </div>
-                <div style="display:flex;gap:10px">
-                  <button onClick="{{ copyLink }}" style="flex:1;background:#334155;color:#ffffff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">{{ copyButtonLabel }}</button>
-                  <button onClick="{{ whatsappShare }}" style="flex:1;background:#10b981;color:#ffffff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">Send via WhatsApp</button>
-                </div>
-              </sc-if>
-            </div>
-          </div>
-        </sc-if>
-      </section>
-    </sc-if>
-
-  </main>
-
-  <footer style="background:#0f172a;color:#94a3b8;padding:36px 24px;text-align:center">
-    <p style="font-size:14px;font-weight:700;color:#e2e8f0;margin:0 0 6px">Rizwan Naeem | Utility &amp; Energy Comparison</p>
-    <p style="font-size:13px;margin:0 0 14px">Email: hello@rizwanenergy.com | Mobile: 07799433728</p>
-    <p style="font-size:12px;color:#64748b;margin:0;max-width:480px;margin-left:auto;margin-right:auto">Your privacy matters. Information and uploaded bills are kept strictly confidential.</p>
-    <p onClick="{{ onFooterClick }}" style="font-size:11px;color:#475569;margin:16px 0 0;cursor:default;user-select:none">© 2026 Rizwan Energy. All rights reserved.</p>
-  </footer>
-
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = {
-    currentPage: 1,
-    p1Name: '', p1Email: '', p1Phone: '', p1Submitted: false,
-    p2Name: '', p2Email: '', p2Phone: '', p2FileName: '', p2Submitted: false,
-    p3Name: '', p3Email: '', p3Phone: '', p3FileName: '', p3Submitted: false, p3ReferrerName: '',
-    refCode: '',
-    isAdmin: false,
-    adminClientName: '',
-    generatedCode: '',
-    copyStatus: '',
-    showHelpModal: false,
-    providersOpen: {},
-    liveHeadline: '', liveLink: '', liveNewsFailed: false,
-  };
-
-  static FALLBACK_NEWS = '⚡ Energy Expert Alert: Fixed tariffs currently beat standard variable rates — check if you can save.';
-
-  p2FileRef = React.createRef();
-  p3FileRef = React.createRef();
-  leadFormRef = React.createRef();
-
-  scrollToLeadForm = () => {
-    this.setState({ currentPage: 1 });
-    setTimeout(() => {
-      if (this.leadFormRef.current) {
-        const top = this.leadFormRef.current.getBoundingClientRect().top + window.pageYOffset - 90;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 50);
-  };
-
-  componentDidMount() {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const ref = params.get('ref');
-      if (ref) this.setState({ refCode: ref });
-      if (params.get('admin') === 'true') this.setState({ isAdmin: true });
-    } catch (e) {}
-    this.fetchLiveNews();
-  }
-
-  footerClickCount = 0;
-  onFooterClick = () => {
-    this.footerClickCount += 1;
-    clearTimeout(this.footerClickResetTimer);
-    this.footerClickResetTimer = setTimeout(() => { this.footerClickCount = 0; }, 900);
-    if (this.footerClickCount >= 3) {
-      this.footerClickCount = 0;
-      this.setState(s => ({ isAdmin: !s.isAdmin }));
-    }
-  };
-
-  fetchLiveNews = async () => {
-    try {
-      const feedUrl = 'https://www.moneysavingexpert.com/news/feeds/news.rss';
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`;
-      const res = await fetch(proxyUrl);
-      const text = await res.text();
-      const doc = new DOMParser().parseFromString(text, 'text/xml');
-      const item = doc.querySelector('item');
-      const title = item && item.querySelector('title') ? item.querySelector('title').textContent : '';
-      const link = item && item.querySelector('link') ? item.querySelector('link').textContent : '';
-      if (title && link) {
-        this.setState({ liveHeadline: title.trim(), liveLink: link.trim(), liveNewsFailed: false });
-      } else {
-        this.setState({ liveNewsFailed: true });
-      }
-    } catch (e) {
-      this.setState({ liveNewsFailed: true });
-    }
-  };
-
-  setField = (key, value) => this.setState({ [key]: value });
-
-  submitP1 = (e) => {
-    e.preventDefault();
-    if (this.state.p1Name && this.state.p1Email && this.state.p1Phone) this.setState({ p1Submitted: true });
-  };
-  submitP2 = (e) => {
-    e.preventDefault();
-    if (this.state.p2Name && this.state.p2Email && this.state.p2Phone) this.setState({ p2Submitted: true });
-  };
-  submitP3 = (e) => {
-    e.preventDefault();
-    if (this.state.p3Name && this.state.p3Email && this.state.p3Phone) this.setState({ p3Submitted: true });
-  };
-
-  toggleProvider = (i) => this.setState(s => ({ providersOpen: { ...s.providersOpen, [i]: !s.providersOpen[i] } }));
-
-  generateLink = () => {
-    const raw = (this.state.adminClientName || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-    const base = raw || 'CLIENT';
-    const suffix = Math.floor(100 + Math.random() * 900);
-    this.setState({ generatedCode: `${base}${suffix}`, copyStatus: '' });
-  };
-
-  copyLink = () => {
-    const link = `www.rizwanenergy.com/refer?ref=${this.state.generatedCode}`;
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(link).then(() => {
-        this.setState({ copyStatus: 'copied' });
-        setTimeout(() => this.setState({ copyStatus: '' }), 2000);
-      }).catch(() => {});
-    }
-  };
-
-  whatsappShare = () => {
-    const link = `www.rizwanenergy.com/refer?ref=${this.state.generatedCode}`;
-    const msg = `Hi! Here's your exclusive £50 cashback link for switching your energy with Rizwan: ${link}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-  };
-
-  renderVals() {
-    const s = this.state;
-    const providersData = [
-      { name: 'Octopus Energy', tip: "Log in to the Octopus app > Account > Bills & Payments > download the latest bill as a PDF." },
-      { name: 'British Gas', tip: 'Open the British Gas app > My Account > Bills > select a bill > download the PDF.' },
-      { name: 'E.ON Next', tip: 'Sign in online > My Account > Billing history > view and download your bill.' },
-      { name: 'OVO Energy', tip: 'Open the OVO app > Bills tab > select the latest bill > download or screenshot it.' },
-      { name: 'EDF Energy', tip: 'Log in to My EDF Account > Bills and payments > download the bill PDF.' },
-      { name: 'ScottishPower', tip: 'Sign in online > My Account > Bills > download as a PDF.' },
-      { name: 'UW (Utility Warehouse)', tip: 'Open the My UW app > Bills > select a month > download or photograph the screen.' },
-      { name: 'So Energy', tip: 'Log in online > Billing > view bill > download the PDF.' },
-      { name: 'Utilita', tip: 'Open the Utilita app > Statements > select the latest one > download the PDF.' },
-      { name: 'Outfox the Market', tip: 'Sign in online > My Bills > download the latest statement.' },
-    ];
-    const providers = providersData.map((p, i) => ({
-      ...p,
-      isOpen: !!s.providersOpen[i],
-      chevronRotation: s.providersOpen[i] ? '180deg' : '0deg',
-      onToggle: () => this.toggleProvider(i),
-    }));
-
-    const activeBg = '#0f172a', activeColor = '#ffffff', inactiveBg = 'transparent', inactiveColor = '#475569';
-
-    return {
-      scrollToLeadForm: this.scrollToLeadForm,
-      leadFormRef: this.leadFormRef,
-      liveHeadlineDisplay: s.liveHeadline || Component.FALLBACK_NEWS,
-      liveLinkHref: s.liveLink || '#',
-      showReadLink: !!s.liveLink,
-      isPage1: s.currentPage === 1,
-      isPage2: s.currentPage === 2,
-      isPage3: s.currentPage === 3,
-      goPage1: () => this.setState({ currentPage: 1 }),
-      goPage2: () => this.setState({ currentPage: 2 }),
-      goPage3: () => this.setState({ currentPage: 3 }),
-      tab1Bg: s.currentPage === 1 ? activeBg : inactiveBg,
-      tab1Color: s.currentPage === 1 ? activeColor : inactiveColor,
-      tab2Bg: s.currentPage === 2 ? activeBg : inactiveBg,
-      tab2Color: s.currentPage === 2 ? activeColor : inactiveColor,
-      tab3Bg: s.currentPage === 3 ? activeBg : inactiveBg,
-      tab3Color: s.currentPage === 3 ? activeColor : inactiveColor,
-
-      p1Name: s.p1Name, p1Email: s.p1Email, p1Phone: s.p1Phone,
-      onP1Name: (e) => this.setField('p1Name', e.target.value),
-      onP1Email: (e) => this.setField('p1Email', e.target.value),
-      onP1Phone: (e) => this.setField('p1Phone', e.target.value),
-      submitP1: this.submitP1,
-      p1FormVisible: !s.p1Submitted,
-      p1SuccessVisible: s.p1Submitted,
-      p1Name_display: s.p1Name,
-
-      p2Name: s.p2Name, p2Email: s.p2Email, p2Phone: s.p2Phone,
-      p2FileName: s.p2FileName || 'No file selected',
-      onP2Name: (e) => this.setField('p2Name', e.target.value),
-      onP2Email: (e) => this.setField('p2Email', e.target.value),
-      onP2Phone: (e) => this.setField('p2Phone', e.target.value),
-      onP2File: (e) => this.setField('p2FileName', e.target.files[0] ? e.target.files[0].name : ''),
-      triggerP2Upload: () => { if (this.p2FileRef.current) this.p2FileRef.current.click(); },
-      p2FileRef: this.p2FileRef,
-      submitP2: this.submitP2,
-      p2FormVisible: !s.p2Submitted,
-      p2SuccessVisible: s.p2Submitted,
-
-      showHelpModal: s.showHelpModal,
-      openHelpModal: () => this.setState({ showHelpModal: true }),
-      closeHelpModal: () => this.setState({ showHelpModal: false }),
-      stopPropagation: (e) => e.stopPropagation(),
-
-      providers,
-
-      p3Name: s.p3Name, p3Email: s.p3Email, p3Phone: s.p3Phone,
-      p3FileName: s.p3FileName || 'No file selected',
-      onP3Name: (e) => this.setField('p3Name', e.target.value),
-      onP3Email: (e) => this.setField('p3Email', e.target.value),
-      onP3Phone: (e) => this.setField('p3Phone', e.target.value),
-      onP3File: (e) => this.setField('p3FileName', e.target.files[0] ? e.target.files[0].name : ''),
-      triggerP3Upload: () => { if (this.p3FileRef.current) this.p3FileRef.current.click(); },
-      p3FileRef: this.p3FileRef,
-      submitP3: this.submitP3,
-      p3FormVisible: !s.p3Submitted,
-      p3SuccessVisible: s.p3Submitted,
-      p3ReferrerName: s.p3ReferrerName,
-      onP3ReferrerName: (e) => this.setField('p3ReferrerName', e.target.value),
-      refCode: s.refCode,
-      onRefCode: (e) => this.setField('refCode', e.target.value),
-
-      isAdmin: s.isAdmin,
-      onFooterClick: this.onFooterClick,
-      adminClientName: s.adminClientName,
-      onAdminClientName: (e) => this.setField('adminClientName', e.target.value),
-      generateLink: this.generateLink,
-      hasGeneratedCode: !!s.generatedCode,
-      generatedLinkDisplay: `www.rizwanenergy.com/refer?ref=${s.generatedCode}`,
-      copyLink: this.copyLink,
-      whatsappShare: this.whatsappShare,
-      copyButtonLabel: s.copyStatus === 'copied' ? 'Copied!' : 'Copy Link',
-    };
-  }
-}
-
-</script>
 </body>
 </html>
