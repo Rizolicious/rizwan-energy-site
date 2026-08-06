@@ -90,7 +90,7 @@
     })
     .then(function(res) {
       if (res.ok) {
-        window.location.href = 'https://www.rizwanenergy.com/?success=true';
+        window.location.href = window.location.pathname + '?success=true';
       } else {
         alert('Submission failed. Please try again.');
         btn.disabled = false;
@@ -104,19 +104,6 @@
     });
   });
 </script>
-      if (res.ok) {
-        window.location.href = window.location.pathname + '?success=true';
-      } else {
-        alert('Submission failed. Please try again.');
-        btn.disabled = false;
-        btn.innerText = 'Request My Free Bill Review';
-      }
-    } catch (err) {
-      alert('Submission failed. Please try again.');
-      btn.disabled = false;
-      btn.innerText = 'Request My Free Bill Review';
-    }
-  });
 </script>
     try {
       const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
