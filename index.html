@@ -104,6 +104,25 @@
         body: formData
       });
       if (res.ok) {
+        window.location.href = window.location.pathname + '?success=true';
+      } else {
+        alert('Submission failed. Please try again.');
+        btn.disabled = false;
+        btn.innerText = 'Request My Free Bill Review';
+      }
+    } catch (err) {
+      alert('Submission failed. Please try again.');
+      btn.disabled = false;
+      btn.innerText = 'Request My Free Bill Review';
+    }
+  });
+</script>
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
         window.location.search = '?success=true';
       } else {
         alert('Submission failed. Please try again.');
