@@ -119,6 +119,30 @@
 </script>
 </sc-if>
 <sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
+    
+    const formData = new FormData(this);
+    
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        window.location.search = '?success=true';
+      } else {
+        alert('Submission failed. Please try again.');
+        btn.disabled = false;
+        btn.innerText = 'Request My Free Bill Review';
+      }
+    } catch (err) {
+      alert('Submission failed. Please try again.');
+      btn.disabled = false;
+      btn.innerText = 'Request My Free Bill Review';
+    }
+  });
+</script>
+</sc-if>
+<sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
               <div style="width:52px;height:52px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
