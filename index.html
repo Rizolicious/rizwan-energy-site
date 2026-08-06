@@ -69,13 +69,7 @@
 
         <div ref="{{ leadFormRef }}" style="max-width:460px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;box-shadow:0 12px 32px rgba(15,23,42,0.06);text-align:left">
           <sc-if value="{{ p1FormVisible }}" hint-placeholder-val="{{ true }}">
-         <form action="https://formsubmit.co/hello@rizwanenergy.com" method="POST" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:16px">
-  <!-- Disables the reCAPTCHA page -->
-  <input type="hidden" name="_captcha" value="false">
-  <!-- Redirects back to homepage to trigger green checkmark -->
-  <input type="hidden" name="_next" value="https://www.rizwanenergy.com/?success=true">
-  <input type="hidden" name="_subject" value="New Energy Bill Review & Upload">
-
+         <form id="home-bill-form" style="display:flex;flex-direction:column;gap:16px">
   <div>
     <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
     <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
@@ -92,9 +86,39 @@
     <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Upload Energy Bill (Optional - PDF or Image)</label>
     <input type="file" name="Energy Bill Attachment" accept=".pdf,.png,.jpg,.jpeg" style="width:100%;padding:10px;border:1px dashed #cbd5e1;border-radius:8px;background:#f8fafc">
   </div>
-  <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
+  <button type="submit" id="home-submit-btn" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
 </form>
+
+<script>
+  document.getElementById('home-bill-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('home-submit-btn');
+    btn.disabled = true;
+    btn.innerText = 'Submitting...';
+    
+    const formData = new FormData(this);
+    
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        window.location.search = '?success=true';
+      } else {
+        alert('Submission failed. Please try again.');
+        btn.disabled = false;
+        btn.innerText = 'Request My Free Bill Review';
+      }
+    } catch (err) {
+      alert('Submission failed. Please try again.');
+      btn.disabled = false;
+      btn.innerText = 'Request My Free Bill Review';
+    }
+  });
+</script>
 </sc-if>
+<sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
               <div style="width:52px;height:52px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
