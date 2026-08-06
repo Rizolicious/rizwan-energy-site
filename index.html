@@ -52,24 +52,10 @@
       Call 07799433728
     </a>
   </header>
+<h1 style="font-size:36px;font-weight:800;color:#0f172a;margin-bottom:8px">Stop Overpaying for Your Energy.</h1>
+<p style="font-size:16px;color:#475569;margin-bottom:24px">Free, honest energy bill reviews with no obligation.</p>
 
-  <main style="flex:1;width:100%">
-
-    <!-- ============ PAGE 1: LANDING ============ -->
-    <sc-if value="{{ isPage1 }}" hint-placeholder-val="{{ true }}">
-      <section style="max-width:720px;margin:0 auto;padding:28px 24px 20px;text-align:center">
-        <h1 style="font-size:42px;line-height:1.1;font-weight:800;color:#0f172a;margin:0 0 10px">Stop Overpaying for Your Energy.</h1>
-        <p style="font-size:19px;font-weight:600;color:#0f172a;margin:0 0 20px">Free, honest energy bill reviews with no obligation.</p>
-
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px">
-          <span style="background:#ffffff;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;font-size:clamp(11px,3vw,13px);font-weight:600;color:#334155;white-space:nowrap">✅ Free Bill Review</span>
-          <span style="background:#ffffff;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;font-size:clamp(11px,3vw,13px);font-weight:600;color:#334155;white-space:nowrap">💷 £150 Cashback Available*</span>
-          <span style="background:#ffffff;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;font-size:clamp(11px,3vw,13px);font-weight:600;color:#334155;white-space:nowrap">⭐ No Exit Fees on Energy Switches</span>
-        </div>
-
-        <div ref="{{ leadFormRef }}" style="max-width:460px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;box-shadow:0 12px 32px rgba(15,23,42,0.06);text-align:left">
-          <sc-if value="{{ p1FormVisible }}" hint-placeholder-val="{{ true }}">
-         <form id="home-bill-form" style="display:flex;flex-direction:column;gap:16px">
+<form id="home-bill-form" style="display:flex;flex-direction:column;gap:16px">
   <div>
     <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
     <input type="text" name="Full Name" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px">
@@ -90,7 +76,7 @@
 </form>
 
 <script>
-  document.getElementById('home-bill-form').addEventListener('submit', async function(e) {
+  document.getElementById('home-bill-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('home-submit-btn');
     btn.disabled = true;
@@ -98,11 +84,26 @@
     
     const formData = new FormData(this);
     
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
-        method: 'POST',
-        body: formData
-      });
+    fetch('https://formsubmit.co/ajax/hello@rizwanenergy.com', {
+      method: 'POST',
+      body: formData
+    })
+    .then(function(res) {
+      if (res.ok) {
+        window.location.href = 'https://www.rizwanenergy.com/?success=true';
+      } else {
+        alert('Submission failed. Please try again.');
+        btn.disabled = false;
+        btn.innerText = 'Request My Free Bill Review';
+      }
+    })
+    .catch(function() {
+      alert('Submission failed. Please try again.');
+      btn.disabled = false;
+      btn.innerText = 'Request My Free Bill Review';
+    });
+  });
+</script>
       if (res.ok) {
         window.location.href = window.location.pathname + '?success=true';
       } else {
