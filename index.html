@@ -69,13 +69,10 @@
 
         <div ref="{{ leadFormRef }}" style="max-width:460px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;box-shadow:0 12px 32px rgba(15,23,42,0.06);text-align:left">
           <sc-if value="{{ p1FormVisible }}" hint-placeholder-val="{{ true }}">
-          <form action="https://formsubmit.co/hello@rizwanenergy.com" method="POST" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:16px">
-  <!-- Email Subject Line -->
-  <input type="hidden" name="_subject" value="New Energy Bill Review & Upload">
-  <!-- Custom Redirect back to your site -->
+         <form action="https://formsubmit.co/hello@rizwanenergy.com" method="POST" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:16px">
+  <!-- This line redirects the user so the green checkmark shows -->
   <input type="hidden" name="_next" value="https://www.rizwanenergy.com/?success=true">
-  <!-- Disable Captcha for smoother submission (Optional) -->
-  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New Energy Bill Review & Upload">
 
   <div>
     <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Full Name</label>
@@ -95,7 +92,9 @@
   </div>
   <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
 </form>
-          </sc-if>
+  <button type="submit" style="margin-top:6px;width:100%;background:#10b981;color:#ffffff;border:none;padding:15px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer">Request My Free Bill Review</button>
+</form>
+          <sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
           <sc-if value="{{ p1SuccessVisible || window.location.search.includes('success=true') }}" hint-placeholder-val="{{ false }}">
             <div style="text-align:center;padding:20px 0">
               <div style="width:52px;height:52px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
