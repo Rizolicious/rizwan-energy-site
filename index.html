@@ -96,12 +96,16 @@
   </script>
  <script src="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.js"></script>
 <script>
-  getAddress.autocomplete("address_search", "dtoken_hEDzcyiWMr0AQbq4-KSMzDWp0Nfo_mWBx0KpRwTogE5WrzRByfyAgo1eyhADhPZy8Pbc27EzZFjlMq6bI-CxKfNNfRir4hq0QSa6sHcJgyKVcMId0OccWsqtn_HwAcnOQgk3N24T-ixbCeNLdmE-kzgZ9WwEfajZ5t6W9akK4KHXEWhB55HL8mjgiNTszEIHTvjmhrJINY8", {
-    output_fields: {
-      line_1: "line_1",
-      town_or_city: "town",
-      postcode: "postcode"
-    }
+  document.addEventListener("DOMContentLoaded", function() {
+    getAddress.autocomplete("address_search", "tXtayePqZEmQaIkwgc7sZQ53502");
+    
+    document.addEventListener("getaddress-autocomplete-address-selected", function(e) {
+      if (e && e.address) {
+        document.getElementById("line_1").value = e.address.formatted_address[0] || "";
+        document.getElementById("town").value = e.address.town_or_city || e.address.formatted_address[3] || "";
+        document.getElementById("postcode").value = e.address.postcode || "";
+      }
+    });
   });
 </script>
 </body>
