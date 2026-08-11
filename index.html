@@ -62,7 +62,7 @@
         </div>
         <div>
         <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Address or Postcode (Optional)</label>
-        <input type="text" id="address_search" autocomplete="off" placeholder="Start typing house number or postcode..." ...>
+        <input type="text" id="address_search" autocomplete="off" placeholder="Start typing house number or postcode..." style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;">
       </div>
       <div>
         <input type="text" id="line_1" name="Address Line 1" placeholder="Address Line 1" readonly style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;background:#f8fafc">
@@ -93,10 +93,14 @@
         </div>
       `;
     }
-<!-- getAddress CSS -->
+<!-- getAddress Styling & Script -->
+<style>
+  div[class*="getaddress"], .getaddress-autocomplete-container {
+    width: 100% !important;
+    display: block !important;
+  }
+</style>
 <link rel="stylesheet" href="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.css">
-
-<!-- getAddress JS -->
 <script src="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.js"></script>
 <script>
   getAddress.autocomplete("address_search", "tXtayePqZEmQaIkwgc7sZQ53502", {
