@@ -93,19 +93,14 @@
         </div>
       `;
     }
-  </script>
- <script src="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.js"></script>
+<script src="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    getAddress.autocomplete("address_search", "tXtayePqZEmQaIkwgc7sZQ53502");
-    
-    document.addEventListener("getaddress-autocomplete-address-selected", function(e) {
-      if (e && e.address) {
-        document.getElementById("line_1").value = e.address.formatted_address[0] || "";
-        document.getElementById("town").value = e.address.town_or_city || e.address.formatted_address[3] || "";
-        document.getElementById("postcode").value = e.address.postcode || "";
-      }
-    });
+  getAddress.autocomplete("address_search", "tXtayePqZEmQaIkwgc7sZQ53502", {
+    output_fields: {
+      line_1: "line_1",
+      town_or_city: "town",
+      postcode: "postcode"
+    }
   });
 </script>
 </body>
