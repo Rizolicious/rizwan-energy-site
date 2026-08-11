@@ -60,19 +60,18 @@
           <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Mobile Phone</label>
           <input type="tel" name="Mobile Phone" required placeholder="07xxx xxxxxx" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px">
         </div>
-        <div>
-        <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Address or Postcode (Optional)</label>
-        <input type="text" id="address_search" autocomplete="off" placeholder="Start typing house number or postcode..." style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;">
-      </div>
-      <div>
-        <input type="text" id="line_1" name="Address Line 1" placeholder="Address Line 1" readonly style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;background:#f8fafc">
-      </div>
-      <div>
-        <input type="text" id="town" name="Town/City" placeholder="Town / City" readonly style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;background:#f8fafc">
-      </div>
-      <div>
-        <input type="text" id="postcode" name="Postcode" placeholder="Postcode" readonly style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;background:#f8fafc">
-      </div>
+       <div>
+  <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Address Line 1</label>
+  <input type="text" id="line_1" name="Address Line 1" placeholder="Building number and street..." style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+</div>
+<div>
+  <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Town / City</label>
+  <input type="text" id="town" name="Town/City" placeholder="Town or City" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+</div>
+<div>
+  <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Postcode</label>
+  <input type="text" id="postcode" name="Postcode" placeholder="Postcode" style="width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+</div>
         <div>
           <label style="display:block;font-size:13px;font-weight:600;color:#334155;margin-bottom:6px">Upload Energy Bill (Optional - PDF or Image)</label>
           <input type="file" name="Energy Bill Attachment" accept=".pdf,.png,.jpg,.jpeg" style="width:100%;padding:10px;border:1px dashed #cbd5e1;border-radius:8px;background:#f8fafc;font-size:13px">
@@ -95,15 +94,6 @@
     }
 </script>
 
-<script src="https://cdn.getaddress.io/scripts/getaddress-autocomplete-1.1.2.min.js"></script>
-<script>
-  getAddress.autocomplete("address_search", "dtoken_hEDzcyiWMr0AQbq4-KSMzDWp0Nfo_mWBx0KpRwTogE5WrzRByfyAgo1eyhADhPZy8Pbc27EzZFjlMq6bI-CxKSXxoinLfdCFjuF7YQ6uNY4DKzMxArf-oxWPlvr6VY8vMzK_R3oI2BK9kxRlt9mtuAXmUCpbOjcB1fukbnuZTINfLZuYTJtyO5KqPaFTXXa-QYhslDZt3e3s6GUbl76c6w", {
-    output_fields: {
-      line_1: "line_1",
-      town_or_city: "town",
-      postcode: "postcode"
-    }
-  });
-</script>
+
 </body>
 </html>
